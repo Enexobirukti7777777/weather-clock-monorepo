@@ -1,0 +1,18 @@
+{
+  "name": "my-weather-clock-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:weather": "npm run dev --workspace=weather",
+    "dev:clock": "npm run dev --workspace=clock",
+    "dev:both": "concurrently \"npm run dev:weather\" \"npm run dev:clock\"",
+    "build": "npm run build --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
