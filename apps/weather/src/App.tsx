@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getGreeting } from "@repo/utils";
 import { Card, Loader, Badge, Input, Button } from "@repo/ui";
+import { WeatherForecast } from "./components/WeatherForecast";
 
 function App() {
   const [weather, setWeather] = useState<any>(null);
@@ -17,7 +18,7 @@ function App() {
   }, []);
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", marginTop: "100px" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "100px", gap: "24px" }}>
       <Card style={{ textAlign: "center", minWidth: "350px" }}>
         <h1>🌤️ {getGreeting()}</h1>
         <Input placeholder="Enter city name (demo)" style={{ marginBottom: "16px" }} />
@@ -39,6 +40,7 @@ function App() {
           </div>
         )}
       </Card>
+      <WeatherForecast latitude={9.03} longitude={38.74} />
     </div>
   );
 }
